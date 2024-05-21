@@ -20,6 +20,7 @@ export interface BackendApiProps {
   userPool: UserPool;
   idPool: IdentityPool;
   table: Table;
+  vpcId?: string;
 }
 
 export class Api extends Construct {

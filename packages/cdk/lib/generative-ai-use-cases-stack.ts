@@ -88,10 +88,14 @@ export class GenerativeAiUseCasesStack extends Stack {
       samlAuthEnabled,
     });
     const database = new Database(this, 'Database');
+    //const database = new Database(this, 'Database', {
+    //  vpcId: props.vpcId,
+    //});
     const api = new Api(this, 'API', {
       userPool: auth.userPool,
       idPool: auth.idPool,
       table: database.table,
+      vpcId: props.vpcId,
     });
 
     if (
@@ -139,12 +143,14 @@ export class GenerativeAiUseCasesStack extends Stack {
       hostName: props.hostName,
       domainName: props.domainName,
       hostedZoneId: props.hostedZoneId,
+      //vpcId: props.vpcId,
     });
 
     if (ragEnabled) {
       new Rag(this, 'Rag', {
         userPool: auth.userPool,
         api: api.api,
+        //vpcId: props.vpcId,
       });
     }
 
@@ -152,11 +158,13 @@ export class GenerativeAiUseCasesStack extends Stack {
       userPool: auth.userPool,
       idPool: auth.idPool,
       api: api.api,
+      //vpcId: props.vpcId,
     });
 
     const file = new File(this, 'File', {
       userPool: auth.userPool,
       api: api.api,
+      //vpcId: props.vpcId,
     });
 
     if (recognizeFileEnabled) {

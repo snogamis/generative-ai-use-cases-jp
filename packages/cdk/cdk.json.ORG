@@ -17,13 +17,6 @@
     ]
   },
   "context": {
-    "stackSuffix": "-Closed",
-    "closedNetworkEnabled": true,
-    "closedNetworkMaxAzs": 2,
-    "hybridNetworkEnabled": true,
-    "virtualClientEnabled": true,
-
-
     "ragEnabled": false,
     "kendraIndexArn": null,
     "kendraDataSourceBucketName": null,
